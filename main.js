@@ -18,27 +18,7 @@ Webcam.snap(function(data_uri) {
 
 }
 
-console.log('ml5 version:', ml5.version);
+console.log('Ml5 Version:', ml5.version);
 
-classifier =  ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/LfG3c3iDW/', moddelloaded);
+classifier =  ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/YEmfuus8I/model.json', moddelloaded);
 
-function modelloaded(){
-    console.log('Model is Loaded')
-}
-
-function check(){
-    img=document.getElementById('capture_image');
-    classifier.classify(img, gotResult);
-}
-
-function gotResult(error, results){
-    if(error){
-        console.error(error);
-    }
-
-    else{
-        console.log(results);
-        document.getElementById("result_object_name").innerHTML=results[0].label;
-        document.getElementById("result_object_accuracy").innerHTML=results[0].confidence.toFixed(3);
-    }
-}
